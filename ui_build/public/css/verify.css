@@ -1,0 +1,163 @@
+
+.containerOuterLayout {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 1366px;
+    height: 768px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    margin-top: calc(calc(100vh - 768px) * 0.5);
+    margin-left: calc(calc(100vw - 1366px) * 0.5);
+}
+
+body {
+    background-image: -webkit-linear-gradient(rgb(207, 207, 207), rgb(201, 201, 201), rgb(204, 204, 204));
+    height: 1vh;
+}
+
+.img_login {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 885px;
+    height: 768px;
+    /* UI Properties */
+    background: transparent linear-gradient(229deg, #8AB7E9B5 0%, #4D77C4 53%, #0033A1F2 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.img_header {
+    /* Layout Properties */
+    position: absolute;
+    top: 216px;
+    left: 1033px;
+    width: 187px;
+    height: 74px;
+    /* UI Properties */
+    background: transparent url('../img/header.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+
+}
+
+.title_header1 {
+    /* Layout Properties */
+    position: absolute;
+    top: 295px;
+    left: 1073px;
+    width: 88px;
+    height: 23px;
+    /* UI Properties */
+    text-align: center;
+    font: normal normal 600 16px/36px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.title_header2 {
+    /* Layout Properties */
+position: absolute;
+top: 325px;
+left: 978px;
+width: 278px;
+height: 15px;
+/* UI Properties */
+text-align: center;
+font: normal normal 500 14px/22px Poppins;
+letter-spacing: 0px;
+color: #757575;
+}
+.title_header3 {
+    /* Layout Properties */
+position: absolute;
+top: 345px;
+left: 978px;
+width: 278px;
+height: 15px;
+/* UI Properties */
+text-align: center;
+font: normal normal 500 13px/22px Poppins;
+letter-spacing: 0px;
+color: #757575;
+}
+
+.text_1 {
+    position: absolute;
+    top: 455px;
+    left: 958px;
+    width: 305px;
+    height: 37px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal bold 12px/18px Poppins;
+    letter-spacing: 0px;
+    color: #757575;
+    opacity: 1;
+}
+
+.support_mail {
+    position: absolute;
+    top: 470px;
+    left: 958px;
+    width: 212px;
+    height: 19px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal 600 13px/18px Poppins;
+    letter-spacing: 0px;
+    color: #0033A1;
+}
+
+.verify_phone2 {
+    position: absolute;
+    top: 405px;
+    left: 957px;
+    width: 338px;
+    height: 30px;
+    border: none;
+	border-bottom: 1px solid #c5c5c7;
+    font: normal normal bold 12px/18px Poppins;
+    color: #000000;
+	background: none;
+    text-align: left;
+    font: normal normal normal 12px/21px Poppins;
+    letter-spacing: 0px;
+    opacity: 1;
+    line-height: 17px;
+}
+
+.verify_phone2:active,
+.verify_phone2:focus,
+.verify_phone2:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
+
+.button_verify {
+    position: absolute;
+    top: 505px;
+    left: 957px;
+    width: 338px;
+    height: 48px;
+    /* UI Properties */
+    background: #0033A1 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border-radius: 8px;
+}
+
+.text_Send {
+    position: absolute;
+    top: 15px;
+    left: 136px;
+    width: 166px;
+    height: 25px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal bold 18px/15px Poppins;
+    letter-spacing: 0.9px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+}
+

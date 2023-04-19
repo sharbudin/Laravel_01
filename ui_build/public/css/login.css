@@ -1,0 +1,194 @@
+
+.containerOuterLayout {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 1366px;
+    height: 768px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    margin-top: calc(calc(100vh - 768px) * 0.5);
+    margin-left: calc(calc(100vw - 1366px) * 0.5);
+}
+
+body {
+    background-image: -webkit-linear-gradient(rgb(207, 207, 207), rgb(201, 201, 201), rgb(204, 204, 204));
+    height: 1vh;
+}
+
+.img_login {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 885px;
+    height: 768px;
+    /* UI Properties */
+    background: transparent linear-gradient(229deg, #8AB7E9B5 0%, #4D77C4 53%, #0033A1F2 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.img_header {
+    /* Layout Properties */
+    position: absolute;
+    top: 186px;
+    left: 1032px;
+    width: 187px;
+    height: 74px;
+    /* UI Properties */
+    background: transparent url('../img/header.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+
+}
+
+.title_header {
+        /* Layout Properties */
+    position: absolute;
+    top: 260px;
+    left: 987px;
+    width: 277px;
+    height: 20px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal bold 14px/36px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.title_warning {
+    position: absolute;
+    top: 320px;
+    left: 958px;
+    width: 277px;
+    height: 20px;
+    /* UI Properties */
+    text-align: left;
+    font: italic normal 400 12px/18px Poppins;
+    letter-spacing: 0px;
+    color: #ff0000;
+    opacity: 1;
+}
+
+.rembox {
+    position: absolute;
+    top: 470px;
+    left: 958px;
+    width: 15px;
+    height: 14px;
+    /* UI Properties */
+    border: 1px solid #C4C4C4;
+    border-radius: 3px;
+    opacity: 1;
+}
+
+.rememberBox {
+    position: absolute;
+    top: 468px;
+    left: 982px;
+    width: 90px;
+    height: 17px;
+    text-align: left;
+    font: normal normal bold 12px/18px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.rememberText {
+    position: absolute;
+    top: 472px;
+    left: 982px;
+    width: 90px;
+    height: 17px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal bold 12px/18px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.forgetPassword {
+    position: absolute;
+    top: 472px;
+    left: 1158px;
+    width: 137px;
+    height: 17px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal bold 12px/18px Poppins;
+    letter-spacing: 0px;
+    color: #0033A1;
+    opacity: 1;
+}
+
+.login_email {
+    position: absolute;
+    top: 349px;
+    left: 957px;
+    width: 338px;
+    height: 40px;
+    border: none;
+	border-bottom: 1px solid #D1D1D4;
+    font: normal normal bold 12px/18px Poppins;
+    color: #000000;
+	background: none;
+}
+
+.login_password {
+    position: absolute;
+    top: 400px;
+    left: 957px;
+    width: 338px;
+    height: 40px;
+    border: none;
+	border-bottom: 1px solid #D1D1D4;
+    font: normal normal bold 12px/18px Poppins;
+    color: #000000;
+	background: none;
+}
+
+.login_email:active,
+.login_email:focus,
+.login_email:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
+
+.login_password:active,
+.login_password:focus,
+.login_password:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
+
+.button_Next {
+    position: absolute;
+    top: 535px;
+    left: 957px;
+    width: 338px;
+    height: 48px;
+    /* UI Properties */
+    background: #213E97 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border-radius: 8px;
+}
+
+.text_Next {
+    position: absolute;
+    /* Layout Properties */
+    top: 17px;
+    left: 145px;
+    width: 49px;
+    height: 25px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal bold 18px/15px Poppins;
+    letter-spacing: 0.9px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+
+}
+
