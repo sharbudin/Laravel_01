@@ -138,7 +138,7 @@
                             </div>
                             <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false"
-                                style="font: normal normal 600 11px/17px Poppins;">{{Session::get('firstname')}}<span
+                                style="font: normal normal 600 11px/17px Poppins;"><?php echo e(Session::get('firstname')); ?><span
                                     style="font: normal normal normal 9px/13px Poppins;"><br>Developer</span></a>
                             <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span
                                     class="fa fa-angle-down"></span></a>
@@ -149,7 +149,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo e(route('logout')); ?>">Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -211,7 +211,7 @@
                             </a>
                         </li>
                         <li class="nav-links">
-                            <a href="{{route('logout')}}" class="link-hover" style="width:212px">
+                            <a href="<?php echo e(route('logout')); ?>" class="link-hover" style="width:212px">
                                 <img src="images/Group 5719.svg" alt="logo" class="icon">
 
                                 <span class="text nav-text">Logout</span>
@@ -262,7 +262,7 @@
             <div class="dashboard-table container_table shadow" id="dashboard-table"
                 style="border-radius:5px;color: #323E48;background: #E3ECF6 0% 0% no-repeat padding-box;text-align: left;font: normal normal 600 12px/18px Poppins;">
                 <div class="tab-header">
-                    <button id="reloadButton" class="reloadButton" style="background-color:#FCFCFC;border:none" type="button"><img src="{{asset('img/reload.svg')}}" alt=""></button>
+                    <button id="reloadButton" class="reloadButton" style="background-color:#FCFCFC;border:none" type="button"><img src="<?php echo e(asset('img/reload.svg')); ?>" alt=""></button>
                 </div>
 
                 <table id="example" class="table row-border hover" style="border-radius:5px;width:100%;height: 40px;">
@@ -278,7 +278,7 @@
                         </tr>
                     </thead>
                     <tbody style="border-radius:5px;background: #FCFCFC  0% 0% no-repeat padding-box;">
-                            {{-- Table data retrived from json file  --}}
+                            
                     </tbody>
                 </table>
             </div>
@@ -299,7 +299,7 @@
 $(document).ready(function() {
   var table = $('#example').DataTable( {
     "ajax": {
-      "url": "{{asset('data/page4data.json')}}",
+      "url": "<?php echo e(asset('data/page4data.json')); ?>",
       "dataSrc": ""
     },
     "columns": [
@@ -392,3 +392,4 @@ $(document).ready(function() {
     }
 </script>
 </html>
+<?php /**PATH D:\Laravel\Laravel_01\ui_build\resources\views/table.blade.php ENDPATH**/ ?>

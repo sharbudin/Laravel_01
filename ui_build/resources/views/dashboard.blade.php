@@ -22,6 +22,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
+
     <title>Glide - Acra Lending Portal design</title>
 
     <style>
@@ -40,6 +41,75 @@
             text-align: center;
             background-color: lightgray;
         }
+
+        .dataTables_paginate {
+            position: absolute;
+            top: 12px;
+            margin-left:90%;
+            background-color : #FCFCFC;
+            padding:2px;
+            border:none ;
+            border-right:1px #707070;
+            color : #707070;
+        }
+        .dataTables_paginate a {
+            color : #707070;
+            text-decoration: none;
+        }
+
+        .reloadButton {
+            position: absolute;
+            margin-left:8.33%;
+            background-color : #FCFCFC;
+            border:none ;
+            color: #323E48;
+        }
+        .dataTables_info {
+            position: absolute;
+            top:3px;
+            margin-left:2%;
+            background-color : #FCFCFC;
+            border:none ;
+            color: #323E48;
+            text-align: left;
+            font: normal normal 600 12px/17px Poppins;
+            letter-spacing: 0px;
+            color: #323E48;
+            opacity: 1;
+        }
+        .dataTables_length {
+            position: absolute;
+            top:5px;
+            margin-left:-6%;
+            background-color : #FCFCFC;
+            border:none ;
+            color: #323E48;
+            text-align: left;
+            font: normal normal 600 12px/17px Poppins;
+            letter-spacing: 0px;
+            color: #323E48;
+            opacity: 1;
+        }
+        .dataTables_length label select {
+            position: absolute;
+            padding-left: 8px;
+            padding-right: 25px;
+            border-color: #E2DCDC;
+            background-color : #F8F8F8;
+            top:8px;
+            left:10px
+            width: 10px;
+            height: 20px;
+            font: normal normal 600 10px/12px Poppins;
+        }
+        .dataTables_length label {
+            font: normal normal 800 12px/17px Poppins;
+            letter-spacing: 0px;
+            padding-right: 115px;
+            color: #323E48;
+            padding-top:9px;
+        }
+
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
@@ -195,43 +265,11 @@
             <div class="dashboard-table container_table shadow" id="dashboard-table"
                 style="border-radius:5px;color: #323E48;background: #E3ECF6 0% 0% no-repeat padding-box;text-align: left;font: normal normal 600 12px/18px Poppins;">
                 <div class="tab-header">
-                    <div class="row">
-
-                        <span
-                            style="text-align: left;font: normal normal 600 12px/18px Poppins;letter-spacing: 0px;color: #323E48;width:180px;text-align:center">
-                            1 - 10 of 100 <i style="padding-left:10px;padding-right:10px;"
-                                class="fa fa-arrows-rotate"></i> Show</span>
-
-                        <select name="showlist" id="showlist"
-                            style="color:#323E48;font-size:11px;width:60px;height:30px;;border:none;padding-bottom:10px;font-weight:600">
-                            <option selected>10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                        </select>
-                        </select>
-                        <div class="btn-group" style="position:absolute; margin-left:87%;margin-right:30%">
-                            <button
-                                style="background-color: #FCFCFC;padding:2px;border:none ;border-right:1px #707070"><i
-                                    class="fa fa-angles-left" style="font-size:15px;color:#707070"></i></button>
-                            <button
-                                style="background-color: #FCFCFC;padding:2px;border:none ;border-right:1px #707070"><i
-                                    class="fa fa-angle-left" style="font-size:15px;color:#707070"></i></button>
-                            <span
-                                style="font: normal normal 500 14px/16px Nunito;text-align:center;vertical-align:middle"><strong>&nbsp;1</strong>
-                                / 25&nbsp;</i></span>
-                            <button
-                                style="background-color: #FCFCFC;padding:2px;border:none ;border-right:1px #707070"><i
-                                    class="fa fa-angle-right" style="font-size:15px;color:#707070"></i></button>
-                            <button
-                                style="background-color: #FCFCFC;padding:2px;border:none ;border-right:1px #707070"><i
-                                    class="fa fa-angles-right" style="font-size:15px;color:#707070"></i></button>
-                        </div>
-                    </div>
-
+                    <button id="reloadButton" class="reloadButton" style="background-color:#FCFCFC;border:none" type="button"><img src="{{asset('img/reload.svg')}}" alt=""></button>
                 </div>
 
-                <table id="example" class="table row-border" style="border-radius:5px;width:100%;height: 40px;">
-                    <thead style="height: 50px;vertical-align:middle">
+                <table id="example" class="table row-border hover" style="border-radius:5px;width:100%;height: 40px;">
+                    <thead class="my-table-header" style="height: 50px;vertical-align:middle">
                         <tr>
                             <th>Scenario Name</th>
                             <th>Borrower Name</th>
@@ -243,51 +281,7 @@
                         </tr>
                     </thead>
                     <tbody style="border-radius:5px;background: #FCFCFC  0% 0% no-repeat padding-box;">
-                        <tr>
-                            <td>Scenario-1</td>
-                            <td>Andy America</td>
-                            <td>02/22/2023</td>
-                            <td>George</td>
-                            <td>Purchase</td>
-                            <td>Sunal</td>
-                            <td>Awaiting Income</td>
-                        </tr>
-                        <tr>
-                            <td>Scenario-2</td>
-                            <td>Andy</td>
-                            <td>04/12/2023</td>
-                            <td>Daniel</td>
-                            <td>Purchase</td>
-                            <td>Sunal</td>
-                            <td><a style="color:#8AB7E9" href="#">Initiate Pricing</a></td>
-                        </tr>
-                        <tr>
-                            <td>Scenario-3</td>
-                            <td>America</td>
-                            <td>03/22/2023</td>
-                            <td>Soburt</td>
-                            <td>Purchase</td>
-                            <td>Robert</td>
-                            <td><a style="color:#8AB7E9" href="#">Submit Loan</a></td>
-                        </tr>
-                        <tr>
-                            <td>Scenario-4</td>
-                            <td>Amy America</td>
-                            <td>01/20/2023</td>
-                            <td>Salah</td>
-                            <td>Purchase</td>
-                            <td>Noki</td>
-                            <td>Awaiting Income</td>
-                        </tr>
-                        <tr>
-                            <td>Scenario-5</td>
-                            <td>Patricia Gail</td>
-                            <td>01/20/2023</td>
-                            <td>Salah</td>
-                            <td>Purchase</td>
-                            <td>Noki</td>
-                            <td>Awaiting Income</td>
-                        </tr>
+                            {{-- Table data retrived from json file  --}}
                     </tbody>
                 </table>
             </div>
@@ -303,25 +297,87 @@
 <script src="https://kit.fontawesome.com/9a470ccc4c.js" crossorigin="anonymous"></script>
 <script src="assets/js/script.js"></script>
 <script>
-    $(document).ready(function () {
-        $('#example').DataTable({
-            scrollY: '300px',
-            scrollCollapse: true,
-            paging: true,
-            pagingType: 'full_numbers',
 
-            "language": {
-                "paginate": {
-                    "first": '<i class="fa fa-angles-left" style="font-size:10px"></i>',
-                    "last": '<i class="fa fa-angles-right" style="font-size:10px"></i>',
-                    "previous": '<i class="fa fa-angle-left" style="font-size:10px"></i>',
-                    "next": '<i class="fa fa-angle-right" style="font-size:10px"></i>',
-                }
-            },
-            // dom: '<"row table_header"<"col-md-1"i><"col-md-1"l><"col-md-8"><"col-md-2"p>>',
-            dom: '',
-        });
-    });
+
+$(document).ready(function() {
+  var table = $('#example').DataTable( {
+    "ajax": {
+      "url": "{{asset('data/page4data.json')}}",
+      "dataSrc": ""
+    },
+    "columns": [
+      { "data": "Scenario Name" },
+      { "data": "Borrower Name" },
+      { "data": "Date" },
+      { "data": "Loan Officer" },
+      { "data": "Loan Purpose" },
+      { "data": "Broker Name" },
+      { "data": "Action" }
+    ],
+    "fnInitComplete": function() {
+    //   $('#example').find('.my-table-header').hide();
+    },
+    "pagingType": "full_numbers",
+    "scrollY": 270,
+    "scrollX": true,
+    "paging": true,
+    "scrollCollapse": true,
+    "language": {
+      "paginate": {
+        "first": '<i class="fa-solid fa-angles-left" style="font-size:12px"></i>',
+        "last": '<i class="fa-solid fa-angles-right" style="font-size:12px"></i>',
+        "previous": '<i class="fa-solid fa-angle-left" style="font-size:12px"></i>',
+        "next": '<i class="fa-solid fa-angle-right" style="font-size:12px"></i>',
+        "sInfo": "_START_ - _END_ of _TOTAL_",
+        "sInfoEmpty": "0 - 0 of 0",
+        "sInfoFiltered": "",
+        "sLengthMenu": "Show _MENU_"
+      }
+    },
+    "drawCallback": function(settings) {
+
+
+      var pagination = $(this).closest('.dataTables_wrapper').find('.dataTables_paginate');
+      var pageInfo = $(this).DataTable().page.info();
+      var currentPage = pageInfo.page + 1;
+      var totalPages = pageInfo.pages;
+      var paginationHtml = '';
+      paginationHtml += '<a class="paginate_button first" href="#" data-page="first"><i class="fa-solid fa-angles-left" style="font-size:12px"></i></a><span>&nbsp;&nbsp;&nbsp;</span>';
+      paginationHtml += '<a class="paginate_button previous" href="#" data-page="prev"><i class="fa-solid fa-angle-left" style="font-size:12px"></i></a><span>&nbsp;&nbsp;&nbsp;</span>';
+      paginationHtml += '<span class="paginate_button current"> ' + currentPage + '<span style="height:10px;font-size:9px">&nbsp; / &nbsp;</span>' + totalPages + ' </span><span>&nbsp;&nbsp;&nbsp;</span>';
+      paginationHtml += '<a class="paginate_button next" href="#" data-page="next"><i class="fa-solid fa-angle-right" style="font-size:12px"></i></a><span>&nbsp;&nbsp;&nbsp;</span>';
+      paginationHtml += '<a class="paginate_button last" href="#" data-page="last"><i class="fa-solid fa-angles-right" style="font-size:12px"></a>';
+      pagination.html(paginationHtml);
+
+      // attach click event listener to navigation links
+      pagination.find('a').on('click', function(e) {
+        e.preventDefault();
+        var page = $(this).data('page');
+        if (page === 'prev') {
+          table.page('previous').draw('page');
+        } else if (page === 'next') {
+          table.page('next').draw('page');
+        } else if (page === 'first') {
+          table.page('first').draw('page');
+        } else if (page === 'last') {
+          table.page('last').draw('page');
+        } else {
+          table.page(page - 1).draw('page');
+        }
+      });
+    },
+    "dom": "<'row'<'col-sm-6 col-md-2'i><'col-sm-6 col-md-2'l><'col-md-6'><'col-sm-6 col-md-2'p>>" + "<'row'<'col-sm-12'tr>>",
+    "language": {
+      "lengthMenu": "Show&nbsp;&nbsp;&nbsp; _MENU_",
+      "info": "_START_ to _END_ of _TOTAL_"
+    }
+  });
+
+  $('#reloadButton').on('click', function() {
+    table.ajax.reload();
+  });
+
+});
 
     $(".btn1").click(function () {
         $(".btn1").removeClass("active");
@@ -339,6 +395,7 @@
     }
 </script>
 </html>
+
 
 @else
 {!! redirect()->to('verify') !!}
