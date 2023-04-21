@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1366px, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/bootstrap-select.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@
 
         .reloadButton {
             position: absolute;
-            margin-left:9%;
+            margin-left:9.5%;
             background-color : #FCFCFC;
             border:none ;
             color: #323E48;
@@ -67,7 +67,7 @@
         .dataTables_info {
             position: absolute;
             top:3px;
-            margin-left:2%;
+            margin-left:1.5%;
             background-color : #FCFCFC;
             border:none ;
             color: #323E48;
@@ -80,7 +80,7 @@
         .dataTables_length {
             position: absolute;
             top:5px;
-            margin-left:-5%;
+            margin-left:-4%;
             background-color : #FCFCFC;
             border:none ;
             color: #323E48;
@@ -92,14 +92,12 @@
         }
         .dataTables_length label select {
             position: absolute;
-            padding-left: 8px;
-            padding-right: 25px;
+
             border-color: #E2DCDC;
             background-color : #F8F8F8;
-            top:8px;
-            left:10px
-            width: 10px;
-            height: 20px;
+            top:5px;
+            width: 25px;
+            height: 25px;
             font: normal normal 600 10px/12px Poppins;
         }
         .dataTables_length label {
@@ -110,6 +108,54 @@
             padding-top:9px;
         }
 
+        .containerOuterLayout {
+            /* width: 100vw; */
+            height: 984px;
+            overflow: hidden;
+            width: 100%; /* Set your container's initial width to whatever you need */
+            transform-origin: top left; /* Set the transform origin to the top left corner */
+            transition: transform 0.3s ease-out; /* Add a transition effect for smooth animation */
+
+            /* Optional styles to center the container horizontally */
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+
+            /* Zoom the container to fit its contents */
+            transform: scale(calc(100vw / 100), calc(100vh / 100));
+        }
+        .sidebar {
+            height: 984px;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+        }
+
+        ::-webkit-scrollbar {
+        display: none;
+        }
+
+        /* Create a custom scrollbar */
+        ::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 20px;
+        border: 5px solid #f1f1f1;
+        }
+
+        /* Optional: Add hover styles to the scrollbar */
+        ::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+        }
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
@@ -315,10 +361,10 @@ $(document).ready(function() {
       { "data": "Action" }
     ],
     "fnInitComplete": function() {
-    //   $('#example').find('.my-table-header').hide();
+        $('select[name="example_length"]').removeClass('form-select');
     },
     "pagingType": "full_numbers",
-    "scrollY": 270,
+    "scrollY": 542,
     "scrollX": true,
     "paging": true,
     "scrollCollapse": true,
@@ -335,8 +381,6 @@ $(document).ready(function() {
       }
     },
     "drawCallback": function(settings) {
-
-
       var pagination = $(this).closest('.dataTables_wrapper').find('.dataTables_paginate');
       var pageInfo = $(this).DataTable().page.info();
       var currentPage = pageInfo.page + 1;
@@ -377,14 +421,18 @@ $(document).ready(function() {
     table.ajax.reload();
   });
 
-});
-
-    $(".btn1").click(function () {
+  $(".btn1").click(function () {
         $(".btn1").removeClass("active");
         $(this).addClass("active");
-    });
+});
+
+
+});
+
+
 
 </script>
+
 
 <script>
     const container = document.querySelector('.containerOuterLayout');
