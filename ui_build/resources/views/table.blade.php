@@ -1,5 +1,3 @@
-@if ((Session::has('home')))
-{!!Session::forget('send')!!}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -396,7 +394,3 @@ $(document).ready(function() {
 </script>
 </html>
 
-
-@else
-{!! redirect()->to('verify') !!}
-@endif
