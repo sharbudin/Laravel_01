@@ -59,7 +59,7 @@
 
         .reloadButton {
             position: absolute;
-            margin-left:8.33%;
+            margin-left:9%;
             background-color : #FCFCFC;
             border:none ;
             color: #323E48;
@@ -80,7 +80,7 @@
         .dataTables_length {
             position: absolute;
             top:5px;
-            margin-left:-6%;
+            margin-left:-5%;
             background-color : #FCFCFC;
             border:none ;
             color: #323E48;
