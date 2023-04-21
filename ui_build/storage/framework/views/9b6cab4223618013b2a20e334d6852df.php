@@ -155,6 +155,34 @@
         background-color: #555;
         }
 
+        input[name="txtBorrower"] {
+            margin: 0 auto;
+            float: none;
+            border: none;
+            width: 150px;
+            border-bottom: 1px solid #000000;
+            outline: none;
+            border-bottom-color: #A8A8A8;
+            background: transparent;
+            font-weight: 500;
+            color : #585858;
+            font-size: 16px;
+        }
+
+        input[placeholder="Borrower Name"]::placeholder {
+            text-align: left;
+            font: normal normal normal 14px/21px Poppins;
+            letter-spacing: 0px;
+            color: #A8A8A8;
+        }
+
+        input[placeholder="mm/dd/yy"]::placeholder {
+            text-align: left;
+            font: normal normal normal 14px/21px Poppins;
+            letter-spacing: 0px;
+            color: #A8A8A8;
+        }
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
@@ -290,18 +318,29 @@
                     <span class="ms-1" style="font-size: 14px">Search</span>
                     <div class="row ms-1 me-1 align-items-center"
                         style="border-radius:5px;height: 69px; background: #EFF5FC">
-                        <div class="col-10">
-                            <label style="font-size: 14px">Search by</label>
-                            <input type="date" class="ms-3" name="txtDate" placeholder="">
-                            <select disabled class="ms-5" aria-label="Default select example">
-                                <option selected style="font-size: 14px">Borrower Name</option>
-                                <option value="1" style="font-size: 14px">No Borrower Name</option>
-                            </select>
+                        <form>
+                            <div class="row">
+                            <div class="col-10">
+                                <label style="font-size: 14px">Search by</label>
+                                <input autocomplete="on" list="list-date" id="date-filter" class="ms-3" name="txtDate" placeholder="mm/dd/yy" oninput="updateOptionsDate(event.target.value)">
+                                <datalist id="list-date">
+                                    
+                                </datalist><svg style="color : #9C9C9C" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+                                  </svg>
+                                <input autocomplete="on" list="list-borrower" id="borrower-name-filter" class="ms-3" name="txtBorrower" placeholder="Borrower Name" oninput="updateOptionsBorrower(event.target.value)">
+                                <datalist id="list-borrower">
+                                    
+                                </datalist><svg style="color : #9C9C9C" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+                                  </svg>
+                            </div>
+                            <div class="col-2">
+                                <button class="btnrst" style="position:relative;left:20px;font: normal normal 600 10px/16px Poppins;width: 69px;  height: 30px;border-radius:5px;">Reset</button>
+                                <button class="btngo" style="position:relative;left:20px;font: normal normal 600 10px/16px Poppins;width: 37px;  height: 30px;border-radius:5px;">Go</button>
+                            </div>
                         </div>
-                        <div class="col-2">
-                            <button class="btnrst" style="position:relative;left:20px;font: normal normal 600 10px/16px Poppins;width: 69px;  height: 30px;border-radius:5px;">Reset</button>
-                            <button class="btngo" style="position:relative;left:20px;font: normal normal 600 10px/16px Poppins;width: 37px;  height: 30px;border-radius:5px;">Go</button>
-                        </div>
+                        <form>
                     </div>
                 </div>
             </div>
@@ -340,6 +379,61 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://kit.fontawesome.com/9a470ccc4c.js" crossorigin="anonymous"></script>
 <script src="assets/js/script.js"></script>
+
+<script>
+function updateOptionsBorrower(value) {
+  const datalist = document.querySelector('#list-borrower');
+  datalist.innerHTML = ''; // clear existing options
+  if (value.length >= 2) {
+    // retrieve options using AJAX
+    $.getJSON("<?php echo e(asset('data/page4data.json')); ?>", function(data) {
+        const uniqueBorrowers = [...new Set(data.map(item => item['Borrower Name']))];
+
+        uniqueBorrowers
+        .filter(borrower => borrower.toLowerCase().startsWith(value.toLowerCase()))
+        .forEach(borrower => {
+        datalist.appendChild(createOptionBorrower(borrower));
+        });
+    });
+  }
+}
+function createOptionBorrower(value) {
+  const option = document.createElement('option');
+  option.value = value;
+  return option;
+}
+
+function updateOptionsDate(value) {
+  const datalist = document.querySelector('#list-date');
+  datalist.innerHTML = ''; // clear existing options
+  if (value.length >= 1) {
+    // retrieve options using AJAX
+    $.getJSON("<?php echo e(asset('data/page4data.json')); ?>", function(data) {
+  const uniqueDates = [...new Set(data.map(item => item['Date']))];
+
+  uniqueDates
+    .filter(date => {
+      const dateStr = date.toLowerCase();
+      const monthStr = dateStr.slice(0, 2);
+      const monthWithLeadingZero = ("0" + monthStr).slice(-2);
+      return (monthStr === "0" + value || monthWithLeadingZero === value) && dateStr.indexOf('/', 3) !== -1;
+    })
+    .forEach(date => {
+      datalist.appendChild(createOptionDate(date));
+    });
+});
+  }
+}
+
+function createOptionDate(value) {
+  const option = document.createElement('option');
+  option.value = value;
+  return option;
+}
+
+
+</script>
+
 <script>
 
 
@@ -417,19 +511,58 @@ $(document).ready(function() {
 
   $('#reloadButton').on('click', function() {
     table.ajax.reload();
+    $('#date-filter').val('');
+    $('#borrower-name-filter').val('');
   });
 
-  $(".btn1").click(function () {
+    $(".btn1").click(function () {
         $(".btn1").removeClass("active");
         $(this).addClass("active");
-});
+    });
+
+
+    // $.getJSON("<?php echo e(asset('data/page4data.json')); ?>", function(data) {
+    //     $.each(data, function(index, item) {
+    //         $('#list-borrower').append('<option value="' + item["Borrower Name"] + '">');
+    //     });
+    // });
+
+    // $.getJSON("<?php echo e(asset('data/page4data.json')); ?>", function(data) {
+    //     $.each(data, function(index, item) {
+    //         $('#list-date').append('<option value="' + item["Date"] + '">');
+    //     });
+    // });
 
 
 });
 
+
+    $(function() {
+        $('.btngo').on('click', function() {
+        event.preventDefault(); // prevent form submission
+        const input1 = $('#date-filter').val();
+        const input2 = $('#borrower-name-filter').val();
+        $('#example tbody tr').each(function() {
+        const column1Value = $(this).find('td:nth-child(3)').text();
+        const column2Value = $(this).find('td:nth-child(2)').text();
+        if ((input1 === '' || column1Value.includes(input1)) && (input2 === '' || column2Value.includes(input2))) {
+                $(this).show();
+            }
+        else {
+            $(this).hide(); // hide the row
+        }
+        });
+    });
+    $('button.clear-btn').click(function() {
+                $('#input1').val('');
+                $('#input2').val('');
+                $('#example tbody tr').show();
+        });
+    });
 
 
 </script>
+
 
 
 <script>
