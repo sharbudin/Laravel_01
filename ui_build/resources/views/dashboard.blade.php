@@ -10,17 +10,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/bootstrap-select.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
         integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
 
 
     <title>Glide - Acra Lending Portal design</title>
@@ -184,6 +187,7 @@
             letter-spacing: 0px;
             color: #A8A8A8;
         }
+
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
@@ -440,6 +444,7 @@ function createOptionDate(value) {
 
 
 $(document).ready(function() {
+
   var table = $('#example').DataTable( {
     "ajax": {
       "url": "{{asset('data/page4data.json')}}",
@@ -475,6 +480,7 @@ $(document).ready(function() {
       }
     },
     "drawCallback": function(settings) {
+
       var pagination = $(this).closest('.dataTables_wrapper').find('.dataTables_paginate');
       var pageInfo = $(this).DataTable().page.info();
       var currentPage = pageInfo.page + 1;
@@ -507,7 +513,9 @@ $(document).ready(function() {
     "dom": "<'row'<'col-sm-6 col-md-2'i><'col-sm-6 col-md-2'l><'col-md-6'><'col-sm-6 col-md-2'p>>" + "<'row'<'col-sm-12'tr>>",
     "language": {
       "lengthMenu": "Show&nbsp;&nbsp;&nbsp; _MENU_",
-      "info": "_START_ to _END_ of _TOTAL_"
+      "info": "_START_ to _END_ of _TOTAL_",
+      "sortAsc": '<i class="fa fa-sort-alpha-asc"></i> Ascending',
+      "sortDesc": '<i class="fa fa-sort-alpha-desc"></i> Descending'
     }
   });
 
@@ -564,8 +572,6 @@ $(document).ready(function() {
 
 
 </script>
-
-
 
 <script>
     const container = document.querySelector('.containerOuterLayout');
