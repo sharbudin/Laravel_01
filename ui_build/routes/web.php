@@ -18,8 +18,8 @@ use App\Http\Controllers\glideController;
 // });
 
 Route::get('/tt', function () {
-    return view('table');
-})->name('start');
+    return view('loan');
+})->name('loan');
 
 Route::get('/', function () {
     return view('login');

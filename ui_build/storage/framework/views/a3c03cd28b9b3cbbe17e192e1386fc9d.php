@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/dashboard.css')); ?>">
 
 
     <title>Glide - Acra Lending Portal</title>
@@ -50,7 +51,7 @@
                             </div>
                             <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false"
-                                style="font: normal normal 600 11px/17px Poppins;">{{Session::get('firstname')}}<span
+                                style="font: normal normal 600 11px/17px Poppins;"><?php echo e(Session::get('firstname')); ?><span
                                     style="font: normal normal normal 9px/13px Poppins;"><br>Developer</span></a>
                             <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span
                                     class="fa fa-angle-down"></span></a>
@@ -61,7 +62,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo e(route('logout')); ?>">Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -123,7 +124,7 @@
                             </a>
                         </li>
                         <li class="nav-links">
-                            <a href="{{route('logout')}}" class="link-hover" style="width:212px">
+                            <a href="<?php echo e(route('logout')); ?>" class="link-hover" style="width:212px">
                                 <img src="img/Group 5719.svg" alt="logo" class="icon">
 
                                 <span class="text nav-text">Logout</span>
@@ -161,13 +162,13 @@
                                 <label style="font-size: 14px">Search by</label>
                                 <input autocomplete="on" list="list-date" id="date-filter" class="ms-3" name="txtDate" placeholder="mm/dd/yyyy" oninput="updateOptionsDate(event.target.value)">
                                 <datalist id="list-date">
-                                    {{-- options --}}
+                                    
                                 </datalist><svg style="color : #9C9C9C" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
                                     <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
                                   </svg>
                                 <input autocomplete="on" list="list-borrower" id="borrower-name-filter" class="ms-3" name="txtBorrower" placeholder="Borrower Name" oninput="updateOptionsBorrower(event.target.value)">
                                 <datalist id="list-borrower">
-                                    {{-- options --}}
+                                    
                                 </datalist><svg style="color : #9C9C9C" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
                                     <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
                                   </svg>
@@ -185,7 +186,7 @@
             <div class="dashboard-table container_table shadow" id="dashboard-table"
                 style="border-radius:5px;color: #323E48;background: #E3ECF6 0% 0% no-repeat padding-box;text-align: left;font: normal normal 600 12px/18px Poppins;">
                 <div class="tab-header">
-                    <button id="reloadButton" class="reloadButton" style="background-color:#FCFCFC;border:none" type="button"><img src="{{asset('img/reload.svg')}}" alt=""></button>
+                    <button id="reloadButton" class="reloadButton" style="background-color:#FCFCFC;border:none" type="button"><img src="<?php echo e(asset('img/reload.svg')); ?>" alt=""></button>
                 </div>
                 <div class="pagination-back"></div>
                 <table id="glide-table" class="table row-border test-table" style="border-radius:5px;height: 40px;">
@@ -201,7 +202,7 @@
                         </tr>
                     </thead>
                     <tbody style="border-radius:5px;background: #FCFCFC  0% 0% no-repeat padding-box;">
-                            {{-- Table data retrived from json file  --}}
+                            
                     </tbody>
                 </table>
             </div>
@@ -215,6 +216,8 @@
     integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://kit.fontawesome.com/9a470ccc4c.js" crossorigin="anonymous"></script>
-<script src="{{asset('js/dashboard.js')}}"></script>
+<script src="<?php echo e(asset('js/dashboard.js')); ?>"></script>
 
 </html>
+
+<?php /**PATH D:\Laravel\Laravel_01\ui_build\resources\views/loan.blade.php ENDPATH**/ ?>
