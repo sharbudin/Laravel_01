@@ -461,6 +461,7 @@ $(document).ready(function() {
     ],
     "fnInitComplete": function() {
         $('select[name="example_length"]').removeClass('form-select');
+        $('#example').find('.my-table-header').hide();
     },
     "pagingType": "full_numbers",
     "scrollY": 542,
@@ -480,7 +481,7 @@ $(document).ready(function() {
       }
     },
     "drawCallback": function(settings) {
-
+      $('#example').find('.my-table-header').hide();
       var pagination = $(this).closest('.dataTables_wrapper').find('.dataTables_paginate');
       var pageInfo = $(this).DataTable().page.info();
       var currentPage = pageInfo.page + 1;

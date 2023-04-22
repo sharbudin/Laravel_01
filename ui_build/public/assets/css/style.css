@@ -192,6 +192,7 @@ opacity:1;
         color: #5F5F5F;
         height: 37.5px;
         vertical-align: middle;
+        width: 5%;
     }
 
 
@@ -318,7 +319,8 @@ opacity:1;
 
     table.dataTable thead .sorting_desc:before {
         content: "" !important;
-        opacity: 0.3 !important;
+        opacity: 1 !important;
+        background-image: url('../../img/sorticon.png');
     }
 
     table.dataTable thead .sorting_asc:after {

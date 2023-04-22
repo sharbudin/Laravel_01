@@ -27,5 +27,13 @@
         </form>
     </div>
 </body>
+<script>
+    const container = document.querySelector('.containerOuterLayout');
+    const content = document.querySelector('.containerOuterLayout');
+
+    if (content.offsetWidth <= container.offsetWidth) {
+    container.style.overflowX = 'hidden'; // hide horizontal scrollbar
+    }
+</script>
 </html>
 <?php /**PATH D:\Laravel\Laravel_01\ui_build\resources\views/login.blade.php ENDPATH**/ ?>
