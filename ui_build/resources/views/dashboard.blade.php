@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-default" style="background: white">
             <div class="container-fluid">
 
-                <img src="img/header.PNG" alt="nav-image" class="ms-4 image-view">
+                <img src="img/header.png" alt="nav-image" class="ms-4 image-view">
                 <form class="d-flex me-auto ms-5 align-items-center searchbtn" role="search">
                     <input type="search" placeholder="Search by Borrower Last Name or Loan Number">
                     <i style="color: #0033A1;" class="fa fa-search" aria-hidden="true"></i>
