@@ -1,6 +1,3 @@
-<?php if((Session::has('home'))): ?>
-<?php echo Session::forget('send'); ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -223,9 +220,4 @@
 
 </html>
 
-
-<?php else: ?>
-<?php echo redirect()->to('verify'); ?>
-
-<?php endif; ?>
-<?php /**PATH D:\Ajith\ui_build\resources\views/dashboard.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Ajith\ui_build\resources\views/loan.blade.php ENDPATH**/ ?>

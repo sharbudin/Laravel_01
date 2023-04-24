@@ -228,31 +228,26 @@ $(document).ready(function () {
     //     });
     // });
 
-
-});
-
-
-$(function () {
-    $('.btngo').on('click', function () {
-        event.preventDefault(); // prevent form submission
-        const input1 = $('#date-filter').val();
-        const input2 = $('#borrower-name-filter').val();
-        $('#glide-table tbody tr').each(function () {
-            const column1Value = $(this).find('td:nth-child(3)').text();
-            const column2Value = $(this).find('td:nth-child(2)').text();
-            if ((input1 === '' || column1Value.includes(input1)) && (input2 === '' || column2Value.includes(input2))) {
-                $(this).show();
-            } else {
-                $(this).hide(); // hide the row
-            }
+    $(function() {
+        $('.btngo').on('click', function() {
+            event.preventDefault(); // prevent form submission
+            let input1 = $('#date-filter').val();
+            let input2 = $('#borrower-name-filter').val();
+            let formattedDate = input1 !== '' ? input1 : '';
+            input2 == 'Borrower Name' ? input2 = "" : input2;
+            table.columns().search('').column(1).search(input2).column(2).search(formattedDate).draw();
+        });
+        $('.btnrst').click(function() {
+            $('#date-filter').val('');
+            $('#borrower-name-filter').val('');
+            table.columns().search('').draw();
         });
     });
-    $('button.clear-btn').click(function () {
-        $('#input1').val('');
-        $('#input2').val('');
-        $('#glide-table tbody tr').show();
-    });
+
 });
+
+
+
 
 
 const container = document.querySelector('.containerOuterLayout');
